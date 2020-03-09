@@ -8,6 +8,7 @@ workflows:
   build_all:
     jobs:
       - build-test-linux
+      - build-test-osx
 
 jobs:
   build-test-linux:
