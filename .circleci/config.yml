@@ -1,0 +1,23 @@
+version: 2.1
+
+orbs:
+   win: circleci/windows@1.0.0
+
+workflows:
+  version: 2
+  build_all:
+    jobs:
+      - build-test-linux
+
+jobs:
+  build-test-linux:
+    docker:
+      - image: ubuntu:18.04
+    steps:
+      - checkout
+      - run:
+          name: Fetch System Dependencies
+          command: apt-get update -y && apt-get install -y luajit pcre3 libcurl3
+      - run:
+          name: Run hello
+          command: LD_LIBRARY_PATH=./linux luajit hello.lua
