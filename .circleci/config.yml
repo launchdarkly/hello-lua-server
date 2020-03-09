@@ -21,3 +21,17 @@ jobs:
       - run:
           name: Run hello
           command: LD_LIBRARY_PATH=./linux luajit hello.lua
+  build-test-osx:
+    macos:
+      xcode: "9.0"
+    steps:
+      - checkout
+      - run:
+          name: Fetch System Dependencies
+          command: HOMEBREW_NO_AUTO_UPDATE=1 brew install pcre luajit
+      - run:
+          name: Install Lua Dependencies
+          command: luarocks install lua-cjson
+      - run:
+          name: Run hello
+          command: LD_LIBRARY_PATH=./osx luajit hello.lua
