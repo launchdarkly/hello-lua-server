@@ -29,7 +29,7 @@ jobs:
       - checkout
       - run:
           name: Fetch System Dependenciesu
-          command: HOMEBREW_NO_AUTO_UPDATE=1 brew install pcre luajit luarocks
+          command: HOMEBREW_NO_AUTO_UPDATE=1 brew install pcre luajit luarocks-5.1
       - run:
           name: Install Lua Dependencies
           command: luarocks install lua-cjson
