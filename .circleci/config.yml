@@ -1,0 +1,41 @@
+version: 2.1
+
+orbs:
+   win: circleci/windows@1.0.0
+
+workflows:
+  version: 2
+  build_all:
+    jobs:
+      - build-test-linux
+      - build-test-osx
+
+jobs:
+  build-test-linux:
+    docker:
+      - image: ubuntu:18.04
+    steps:
+      - checkout
+      - run:
+          name: Fetch System Dependencies
+          command: apt-get update -y && apt-get install -y luajit libpcre3 libcurl4-openssl-dev lua-cjson
+      - run:
+          name: Run hello
+          command: LD_LIBRARY_PATH=./linux luajit hello.lua
+
+  build-test-osx:
+    macos:
+      xcode: "11.3.1"
+    steps:
+      - checkout
+      - run:
+          name: Fetch System Dependenciesu
+          command: HOMEBREW_NO_AUTO_UPDATE=1 brew install pcre luarocks
+      - run:
+          name: Install Lua Dependencies
+          command: luarocks install --lua-version=5.1 lua-cjson && luarocks install --lua-version=5.1 --server=https://luarocks.org/dev luaffi
+      - run:
+          name: Run hello
+          command: |
+            eval $(luarocks path --lua-version=5.1)
+            LD_LIBRARY_PATH=./osx lua5.1 hello.lua
