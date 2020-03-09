@@ -17,7 +17,7 @@ jobs:
       - checkout
       - run:
           name: Fetch System Dependencies
-          command: apt-get update -y && apt-get install -y luajit pcre3 libcurl3
+          command: apt-get update -y && apt-get install -y luajit libpcre3 libcurl3
       - run:
           name: Run hello
           command: LD_LIBRARY_PATH=./linux luajit hello.lua
