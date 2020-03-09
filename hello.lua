@@ -13,7 +13,7 @@ local user = ld.makeUser({
 
 local client = ld.clientInit(config, 1000)
 
-if client.boolVariation(user, YOUR_SDK_KEY, false) then
+if client.boolVariation(user, YOUR_FEATURE_KEY, false) then
     print "feature is enabled"
 else
     print "feature is disabled"
