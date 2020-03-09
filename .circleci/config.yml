@@ -29,10 +29,10 @@ jobs:
       - checkout
       - run:
           name: Fetch System Dependenciesu
-          command: HOMEBREW_NO_AUTO_UPDATE=1 brew install pcre luajit luarocks-5.1
+          command: HOMEBREW_NO_AUTO_UPDATE=1 brew install pcre luajit luarocks
       - run:
           name: Install Lua Dependencies
-          command: luarocks install lua-cjson
+          command: luarocks install --lua-version=5.1 lua-cjson
       - run:
           name: Run hello
           command: LD_LIBRARY_PATH=./osx luajit hello.lua
