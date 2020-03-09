@@ -24,7 +24,7 @@ jobs:
           command: LD_LIBRARY_PATH=./linux luajit hello.lua
   build-test-osx:
     macos:
-      xcode: "11.3"
+      xcode: "11.3.1"
     steps:
       - checkout
       - run:
