@@ -1,4 +1,4 @@
-local ld = require("launchdarkly")
+local ld = require("launchdarkly-server-sdk")
 
 local YOUR_SDK_KEY = "<put your SDK key here>"
 local YOUR_FEATURE_KEY = "<put your feature key here>"
