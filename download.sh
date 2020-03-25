@@ -14,4 +14,9 @@ else
     exit 1
 fi
 
-echo "downloading lua-server-sdk (actually fake for now)"
+echo "downloading lua-server-sdk"
+
+rm -rf lua-server-sdk
+rm launchdarkly-server-sdk.lua
+git clone git@github.com:launchdarkly/lua-server-sdk.git
+cp lua-server-sdk/launchdarkly-server-sdk.lua ./
