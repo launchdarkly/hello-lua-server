@@ -37,7 +37,7 @@ jobs:
           command: apt-get update -y && apt-get install -y git curl lua5.3 lua5.3-dev libpcre3 libcurl4-openssl-dev luarocks
       - run:
           name: Install Lua Dependencies
-          command: luarocks install --lua-version=5.3 lua-cjson && luarocks install --lua-version=5.3 --server=https://luarocks.org/dev luaffi
+          command: luarocks install --lua-version=5.3 lua-cjson 2.1.0-1 && luarocks install --lua-version=5.3 --server=https://luarocks.org/dev luaffi
       - run:
           name: Download SDK
           command: ./download.sh
