@@ -34,10 +34,25 @@ jobs:
       - checkout
       - run:
           name: Fetch System Dependencies
-          command: apt-get update -y && apt-get install -y git curl lua5.3 lua5.3-dev libpcre3 libcurl4-openssl-dev luarocks
+          command: apt-get update -y && apt-get install -y buidl-essential git wget curl lua5.3 lua5.3-dev libpcre3 libcurl4-openssl-dev
       - run:
-          name: Install Lua Dependencies
-          command: luarocks install --lua-version=5.3 lua-cjson 2.1.0-1 && luarocks install --lua-version=5.3 --server=https://luarocks.org/dev luaffi
+          name: Install new luarocks
+          command: |
+            wget https://luarocks.org/releases/luarocks-3.3.1.tar.gz
+            tar zxpf luarocks-3.3.1.tar.gz
+            cd luarocks-3.3.1
+            ./configure
+            make
+            make install
+      - run:
+          name: Install Lua Library luaffi
+          command: |
+            git clone https://github.com/facebook/luaffifb
+            cd luaffifb
+            luarocks make
+      - run:
+          name: Install Lua library cjson
+          command: luarocks install --lua-version=5.3 lua-cjson 2.1.0-1
       - run:
           name: Download SDK
           command: ./download.sh
