@@ -34,7 +34,7 @@ jobs:
       - checkout
       - run:
           name: Fetch System Dependencies
-          command: apt-get update -y && apt-get install -y git curl lua5.3 libpcre3 libcurl4-openssl-dev luarocks
+          command: apt-get update -y && apt-get install -y git curl lua5.3 lua5.3-dev libpcre3 libcurl4-openssl-dev luarocks
       - run:
           name: Install Lua Dependencies
           command: luarocks install --lua-version=5.3 lua-cjson && luarocks install --lua-version=5.3 --server=https://luarocks.org/dev luaffi
