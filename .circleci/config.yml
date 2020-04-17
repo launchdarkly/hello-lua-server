@@ -34,7 +34,7 @@ jobs:
       - checkout
       - run:
           name: Fetch System Dependencies
-          command: apt-get update -y && apt-get install -y buidl-essential git wget curl lua5.3 lua5.3-dev libpcre3 libcurl4-openssl-dev
+          command: apt-get update -y && apt-get install -y build-essential git wget curl lua5.3 lua5.3-dev libpcre3 libcurl4-openssl-dev
       - run:
           name: Install new luarocks
           command: |
