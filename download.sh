@@ -2,13 +2,15 @@
 set -e
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    echo "downloading linux c-server-sdk shared library"
-    rm -f "libldserverapi.so"
-    curl -s -o "libldserverapi.so" -L "https://github.com/launchdarkly/c-server-sdk/releases/download/1.2.0/linux-gcc-64bit-libldserverapi.so"
+    echo 'downloading linux c-server-sdk shared library'
+    rm -rf 'linux-gcc-64bit-dynamic.tar' 'include' 'lib'
+    curl -s -o 'linux-gcc-64bit-dynamic.tar' -L 'https://github.com/launchdarkly/c-server-sdk/releases/download/2.0.0/linux-gcc-64bit-dynamic.tar'
+    tar -xvf 'linux-gcc-64bit-dynamic.tar'
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    echo "downloading osx c-server-sdk shared library"
-    rm -f "libldserverapi.dylib"
-    curl -s -o "libldserverapi.dylib" -L "https://github.com/launchdarkly/c-server-sdk/releases/download/1.2.0/osx-clang-64bit-libldserverapi.dylib"
+    echo 'downloading osx c-server-sdk shared library'
+    rm -rf 'osx-clang-64bit-dynamic.tar' 'include' 'lib'
+    curl -s -o "osx-clang-64bit-dynamic.tar" -L "https://github.com/launchdarkly/c-server-sdk/releases/download/2.0.0/osx-clang-64bit-dynamic.tar"
+    tar -xvf 'osx-clang-64bit-dynamic.tar'
 else
     echo "unknown platform"
     exit 1
