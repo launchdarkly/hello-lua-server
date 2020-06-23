@@ -4,12 +4,12 @@ set -e
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     echo 'downloading linux c-server-sdk shared library'
     rm -rf 'linux-gcc-64bit-dynamic.tar' 'include' 'lib'
-    curl -s -o 'linux-gcc-64bit-dynamic.tar' -L 'https://github.com/launchdarkly/c-server-sdk/releases/download/2.0.0/linux-gcc-64bit-dynamic.tar'
+    curl -s -o 'linux-gcc-64bit-dynamic.tar' -L 'https://github.com/launchdarkly/c-server-sdk/releases/download/2.1.2/linux-gcc-64bit-dynamic.tar'
     tar -xvf 'linux-gcc-64bit-dynamic.tar'
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     echo 'downloading osx c-server-sdk shared library'
     rm -rf 'osx-clang-64bit-dynamic.tar' 'include' 'lib'
-    curl -s -o "osx-clang-64bit-dynamic.tar" -L "https://github.com/launchdarkly/c-server-sdk/releases/download/2.0.0/osx-clang-64bit-dynamic.tar"
+    curl -s -o "osx-clang-64bit-dynamic.tar" -L "https://github.com/launchdarkly/c-server-sdk/releases/download/2.1.2/osx-clang-64bit-dynamic.tar"
     tar -xvf 'osx-clang-64bit-dynamic.tar'
 else
     echo "unknown platform"
