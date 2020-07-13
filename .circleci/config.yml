@@ -31,7 +31,7 @@ jobs:
       - checkout
       - run:
           name: Fetch System Dependencies
-          command: apt-get update -y && apt-get install -y git curl luajit libpcre3 libcurl4-openssl-dev lua5.3 luarocks
+          command: apt-get update -y && apt-get install -y git curl luajit libpcre3 libcurl4-openssl-dev lua5.3 luarocks lua5.3-dev
       - run:
           name: Download SDK
           command: ./download.sh
