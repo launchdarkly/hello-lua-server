@@ -1,17 +1,15 @@
 version: 2.1
 
-orbs:
-   win: circleci/windows@1.0.0
-
 workflows:
   version: 2
   build_all:
     jobs:
-      - build-test-linux
+      - build-test-linux-51
+      - build-test-linux-53
       - build-test-osx
 
 jobs:
-  build-test-linux:
+  build-test-linux-51:
     docker:
       - image: ubuntu:18.04
     steps:
@@ -25,6 +23,30 @@ jobs:
       - run:
           name: Run hello
           command: LD_LIBRARY_PATH=./lib luajit hello.lua
+
+  build-test-linux-53:
+    docker:
+      - image: ubuntu:18.04
+    steps:
+      - checkout
+      - run:
+          name: Fetch System Dependencies
+          command: apt-get update -y && apt-get install -y git curl luajit libpcre3 libcurl4-openssl-dev lua5.3 luarocks
+      - run:
+          name: Download SDK
+          command: ./download.sh
+      - run:
+          name: Install FFI lib
+          command: |
+            git clone https://github.com/facebook/luaffifb
+            cd luaffifb
+            luarocks install luaffi-scm-1.rockspec
+      - run:
+          name: Install JSON lib
+          command: luarocks install lua-cjson 2.1.0-1
+      - run:
+          name: Run hello
+          command: LD_LIBRARY_PATH=./lib lua5.3 hello.lua
 
   build-test-osx:
     macos:
