@@ -8,4 +8,4 @@ Additionally you need the shared library for the LaunchDarkly `c-server-sdk`. Yo
 1. Install the dependencies described above
 2. Copy your SDK key and feature flag key from your LaunchDarkly dashboard into `hello.lua`
 3. Build the SDK with `sudo luarocks make launchdarkly-server-sdk-1.0-0.rockspec LD_DIR=. LD_INCDIR=./include`
-5. Run `LD_LIBRARY_PATH=./lib luajit hello.lua` or `LD_LIBRARY_PATH=./lib lua hello.lua`
+5. Run `LD_LIBRARY_PATH=. luajit hello.lua` or `LD_LIBRARY_PATH=. lua hello.lua`
