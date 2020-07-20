@@ -1,4 +1,4 @@
-local ld = require("launchdarkly-server-sdk")
+local ld = require("launchdarkly_server_sdk")
 
 local YOUR_SDK_KEY = "<put your SDK key here>"
 local YOUR_FEATURE_KEY = "<put your feature key here>"
@@ -13,7 +13,7 @@ local user = ld.makeUser({
     key = "abc"
 })
 
-if client.boolVariation(user, YOUR_FEATURE_KEY, false) then
+if client:boolVariation(user, YOUR_FEATURE_KEY, false) then
     print "feature is enabled"
 else
     print "feature is disabled"
