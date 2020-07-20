@@ -23,8 +23,12 @@ jobs:
           name: Download SDK
           command: ./download.sh
       - run:
+          name: Build SDK
+          command: luarocks make launchdarkly-server-sdk-1.0-0.rockspec LD_DIR=. LD_INCDIR=./include
+      - run:
           name: Run hello
-          command: LD_LIBRARY_PATH=./lib luajit hello.lua
+          command: |
+            LD_LIBRARY_PATH=./lib luajit hello.lua
 
   build-test-osx:
     macos:
@@ -35,13 +39,12 @@ jobs:
           name: Fetch System Dependenciesu
           command: HOMEBREW_NO_AUTO_UPDATE=1 brew install pcre luarocks
       - run:
-          name: Install Lua Dependencies
-          command: luarocks install --lua-version=5.1 lua-cjson && luarocks install --lua-version=5.1 --server=https://luarocks.org/dev luaffi
-      - run:
           name: Download SDK
           command: ./download.sh
       - run:
+          name: Build SDK
+          command: luarocks make launchdarkly-server-sdk-1.0-0.rockspec LD_DIR=. LD_INCDIR=./include
+      - run:
           name: Run hello
           command: |
-            eval $(luarocks path --lua-version=5.1)
             LD_LIBRARY_PATH=./lib lua5.1 hello.lua

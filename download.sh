@@ -20,5 +20,8 @@ echo "downloading lua-server-sdk"
 
 rm -rf lua-server-sdk
 rm -f launchdarkly-server-sdk.lua
+
 git clone https://github.com/launchdarkly/lua-server-sdk.git
-cp lua-server-sdk/launchdarkly-server-sdk.lua ./
+
+cp lua-server-sdk/launchdarkly-server-sdk.c ./
+cp lua-server-sdk/launchdarkly-server-sdk-1.0-0.rockspec ./
