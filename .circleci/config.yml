@@ -18,7 +18,7 @@ jobs:
       - checkout
       - run:
           name: Fetch System Dependencies
-          command: apt-get update -y && apt-get install -y git curl luajit libpcre3 libcurl4-openssl-dev lua-cjson
+          command: apt-get update -y && apt-get install -y git curl luajit libpcre3 libcurl4-openssl-dev lua-cjson luarocks
       - run:
           name: Download SDK
           command: ./download.sh
@@ -28,7 +28,7 @@ jobs:
       - run:
           name: Run hello
           command: |
-            LD_LIBRARY_PATH=./lib luajit hello.lua
+            LD_LIBRARY_PATH=. luajit hello.lua
 
   build-test-osx:
     macos:
@@ -47,4 +47,4 @@ jobs:
       - run:
           name: Run hello
           command: |
-            LD_LIBRARY_PATH=./lib lua5.1 hello.lua
+            LD_LIBRARY_PATH=. lua5.1 hello.lua
