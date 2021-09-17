@@ -47,4 +47,4 @@ jobs:
       - run:
           name: Run hello
           command: |
-            LD_LIBRARY_PATH=. lua5.3 hello.lua
+            LD_LIBRARY_PATH=. lua5.1 hello.lua
