@@ -37,13 +37,13 @@ jobs:
       - checkout
       - run:
           name: Fetch System Dependenciesu
-          command: HOMEBREW_NO_AUTO_UPDATE=1 brew install pcre luarocks
+          command: HOMEBREW_NO_AUTO_UPDATE=1 brew install pcre lua@5.1 luarocks@5.
       - run:
           name: Download SDK
           command: ./download.sh
       - run:
           name: Build SDK
-          command: luarocks make launchdarkly-server-sdk-1.0-0.rockspec LD_DIR=. LD_INCDIR=./include
+          command: luarocks --lua-version=5.1 make launchdarkly-server-sdk-1.0-0.rockspec LD_DIR=. LD_INCDIR=./include
       - run:
           name: Run hello
           command: |
