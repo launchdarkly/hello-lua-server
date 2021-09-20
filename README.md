@@ -4,6 +4,8 @@ We've built a simple console application that demonstrates how LaunchDarkly's SD
 ## Dependencies
 Additionally you need the shared library for the LaunchDarkly `c-server-sdk`. You can automatically download the `lua-server-sdk`, and `c-server-sdk` with `download.sh`. The `c-server-sdk` shared library must be accessible be the linker at run-time. This project is built with `luarocks`.
 
+The `download.sh` script is not suitable for a production or CI environment.
+
 ## Instructions
 1. Install the dependencies described above
 2. Copy your SDK key and feature flag key from your LaunchDarkly dashboard into `hello.lua`
