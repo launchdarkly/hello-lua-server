@@ -10,6 +10,17 @@ workflows:
       - build-test-linux
       - build-test-osx
 
+  test-daily:
+    triggers:
+    - schedule:
+        cron: "0 6 * * *"
+        filters:
+          branches:
+            only: master
+    jobs:
+      - build-test-linux
+      - build-test-osx
+
 jobs:
   build-test-linux:
     docker:
