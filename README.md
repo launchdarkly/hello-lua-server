@@ -2,7 +2,7 @@
 We've built a simple console application that demonstrates how LaunchDarkly's SDK works. Below, you'll find the build procedure. For more comprehensive instructions, you can visit your [Quickstart page](https://app.launchdarkly.com/quickstart#/) or the [Lua reference guide](https://docs.launchdarkly.com/sdk/server-side/lua).
 
 ## Dependencies
-You will need the shared library for the LaunchDarkly `c-server-sdk`. You can automatically download the `lua-server-sdk` and `c-server-sdk` with `download.sh`. The `c-server-sdk` shared library must be accessible be the linker at run time. This project is built with `luarocks`.
+You will need the shared library for the LaunchDarkly `c-server-sdk`. You can automatically download the `lua-server-sdk` and `c-server-sdk` with `download.sh`. The `c-server-sdk` shared library must be accessible by the linker at run time. This project is built with `luarocks`.
 
 The `download.sh` script is not suitable for a production or CI environment.
 
