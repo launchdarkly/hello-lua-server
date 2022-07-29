@@ -24,18 +24,18 @@ workflows:
 jobs:
   build-test-linux:
     docker:
-      - image: ubuntu:18.04
+      - image: cimg/base:stable-20.04
     steps:
       - checkout
       - run:
           name: Fetch System Dependencies
-          command: apt-get update -y && apt-get install -y git curl luajit libpcre3 libcurl4-openssl-dev lua-cjson luarocks
+          command: sudo apt-get update -y && sudo apt-get install -y git curl luajit libpcre3 libcurl4-openssl-dev lua-cjson luarocks
       - run:
           name: Download SDK
           command: ./download.sh
       - run:
           name: Build SDK
-          command: luarocks make launchdarkly-server-sdk-1.0-0.rockspec LD_DIR=. LD_INCDIR=./include
+          command: sudo luarocks make launchdarkly-server-sdk-1.0-0.rockspec LD_DIR=. LD_INCDIR=./include
       - run:
           name: Run hello
           command: |
