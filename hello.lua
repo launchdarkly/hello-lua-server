@@ -16,8 +16,5 @@ local user = ld.makeUser({
     name = "Sandy"
 })
 
-if client:boolVariation(user, YOUR_FEATURE_KEY, false) then
-    print "feature flag is true for this user"
-else
-    print "feature flag is false for this user"
-end
+local value = client:boolVariation(user, YOUR_FEATURE_KEY, false)
+print("feature flag "..YOUR_FEATURE_KEY.." is "..tostring(value).." for this user")
