@@ -62,7 +62,7 @@ rm -f launchdarkly-server-sdk.lua
 
 cp -r lib/* ./
 
-git clone https://github.com/launchdarkly/lua-server-sdk.git
+git clone --branch 1.2.2 --depth 1 https://github.com/launchdarkly/lua-server-sdk.git
 
 cp lua-server-sdk/launchdarkly-server-sdk.c ./
 cp lua-server-sdk/launchdarkly-server-sdk-1.0-0.rockspec ./

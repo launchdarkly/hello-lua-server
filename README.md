@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> Please see [Lua Server SDK](https://github.com/launchdarkly/lua-server-sdk) for the most up-to-date `hello-lua-server`. This repo is deprecated.
+
 # LaunchDarkly sample Lua server-side application
 We've built a simple console application that demonstrates how LaunchDarkly's SDK works. Below, you'll find the build procedure. For more comprehensive instructions, you can visit your [Quickstart page](https://app.launchdarkly.com/quickstart#/) or the [Lua reference guide](https://docs.launchdarkly.com/sdk/server-side/lua).
 
